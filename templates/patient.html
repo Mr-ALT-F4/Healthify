@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DashBoard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello {{myprof.work}}!</h1>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="http://127.0.0.1:8000/files/{{myprof.img}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{myprof.uname}}</h5>
+              <h6 class="card-title">{{myprof.fname}}</h6>
+              <h6 class="card-title">{{myprof.lname}}</h6>
+              <h6 class="card-title">{{myprof.email}}</h6>
+              <p class="card-text">{{myprof.address}}</p>
+              <a href="/viewp">Read Blog</a>
+              <a href="/logout">LogOut</a>
+              <a href="/viewdoc">View Doctors</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="mx-2">Your Appointments:</h2>
+      {%for pap in papp %}
+<div class="card mb-3 mx-2 my-2" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="../files/pic2.jpg" class="img-fluid rounded-start mx-2 my-2" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Doctor Name:{{pap.name}}</h5>
+          <h5 class="card-title">Date:{{pap.date}}</h5>
+          <h5 class="card-title">Start Time:{{pap.stime}}</h5>
+          <h5 class="card-title">End Time:{{pap.endt}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<div class="container my-3">
+    <h2> Articles by Ours Doctor :</h2>
+    <h3>Mental Health:</h3>
+    {% for a in a1 %}
+    <!-- <div style="background-color:rgb(222, 226, 230)" class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{post.title}}</strong>
+            <img src="http://127.0.0.1:8000/files/{{post.img}}" class="img-fluid rounded-start" alt="...">
+            <h3 class="mb-0">{{post.cat}}</h3>
+            <h6 class="mb-0">marked draft as <b>{{post.draft}}</b></h6>
+            <div class="mb-1 text-muted">{{post.summ |truncatechars:15}}</div>
+            <p class="card-text mb-auto">{{post.con |truncatechars:15}}</p>
+            <div class="my-2">
+             <!- <a href="/blog/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a> -->
+            <!-- </div> -->
+            
+        <!-- </div>
+        <div class="col-auto d-none d-lg-block">
+            
+        </div>
+    </div>  -->
+    <div class="card mb-3" style="background-color:rgb(222, 226, 230)">
+        <img src="http://127.0.0.1:8000/files/{{a.img}}" class="card-img-top" style="margin: 2px;width:400px" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Title:{{a.title}}</h5>
+          <h6 class="card-title">Category:{{a.cat}}</h6>
+          <h6 class="card-title">Author:{{a.user}}</h6>
+          <p class="card-text">Summary:{{a.summ |truncatechars:15}}</p>
+          <p class="card-text">Content:{{a.con |truncatechars:15}}</p>
+          <!-- <p class="card-text"><small class="text-body-secondary">marked draft as <b>{{post.draft}}</b></small></p> -->
+        </div>
+        <div class="my-2">
+            <a href="/blog/{{a.sno}}" role="button" class="btn btn-primary">Continue reading</a>
+           </div> 
+      </div>
+      <br>
+        {% endfor %}
+        <h3>Heart Disease:</h3>
+        {% for a in a2 %}
+    <!-- <div style="background-color:rgb(222, 226, 230)" class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{post.title}}</strong>
+            <img src="http://127.0.0.1:8000/files/{{post.img}}" class="img-fluid rounded-start" alt="...">
+            <h3 class="mb-0">{{post.cat}}</h3>
+            <h6 class="mb-0">marked draft as <b>{{post.draft}}</b></h6>
+            <div class="mb-1 text-muted">{{post.summ |truncatechars:15}}</div>
+            <p class="card-text mb-auto">{{post.con |truncatechars:15}}</p>
+            <div class="my-2">
+             <!- <a href="/blog/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a> -->
+            <!-- </div> -->
+            
+        <!-- </div>
+        <div class="col-auto d-none d-lg-block">
+            
+        </div>
+    </div>  -->
+  
+    <div class="card mb-3" style="background-color:rgb(222, 226, 230)">
+        <img src="http://127.0.0.1:8000/files/{{a.img}}" class="card-img-top" style="margin: 2px;width:400px" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Title:{{a.title}}</h5>
+          <h6 class="card-title">Category:{{a.cat}}</h6>
+          <h6 class="card-title">Author:{{a.user}}</h6>
+          <p class="card-text">Summary:{{a.summ |truncatechars:15}}</p>
+          <p class="card-text">Content:{{a.con |truncatechars:15}}</p>
+          <!-- <p class="card-text"><small class="text-body-secondary">marked draft as <b>{{post.draft}}</b></small></p> -->
+        </div>
+        <div class="my-2">
+            <a href="/blog/{{a.sno}}" role="button" class="btn btn-primary">Continue reading</a>
+           </div> 
+      </div>
+      <br>
+      {% endfor %}
+      <h3>Covid-19:</h3>
+      {% for a in a3 %}
+    <!-- <div style="background-color:rgb(222, 226, 230)" class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{post.title}}</strong>
+            <img src="http://127.0.0.1:8000/files/{{post.img}}" class="img-fluid rounded-start" alt="...">
+            <h3 class="mb-0">{{post.cat}}</h3>
+            <h6 class="mb-0">marked draft as <b>{{post.draft}}</b></h6>
+            <div class="mb-1 text-muted">{{post.summ |truncatechars:15}}</div>
+            <p class="card-text mb-auto">{{post.con |truncatechars:15}}</p>
+            <div class="my-2">
+             <!- <a href="/blog/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a> -->
+            <!-- </div> -->
+            
+        <!-- </div>
+        <div class="col-auto d-none d-lg-block">
+            
+        </div>
+    </div>  -->
+    <div class="card mb-3" style="background-color:rgb(222, 226, 230)">
+        <img src="http://127.0.0.1:8000/files/{{a.img}}" class="card-img-top" style="margin: 2px;width:400px"alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Title:{{a.title}}</h5>
+          <h6 class="card-title">Category:{{a.cat}}</h6>
+          <h6 class="card-title">Author:{{a.user}}</h6>
+          <p class="card-text">Summary:{{a.summ |truncatechars:15}}</p>
+          <p class="card-text">Content:{{a.con |truncatechars:15}}</p>
+          <!-- <p class="card-text"><small class="text-body-secondary">marked draft as <b>{{post.draft}}</b></small></p> -->
+        </div>
+        <div class="my-2">
+            <a href="/blog/{{a.sno}}" role="button" class="btn btn-primary">Continue reading</a>
+           </div> 
+      </div>
+      <br>
+        {% endfor %}
+        <h3>Immunization:</h3>
+        {% for a in a4 %}
+    <!-- <div style="background-color:rgb(222, 226, 230)" class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{post.title}}</strong>
+            <img src="http://127.0.0.1:8000/files/{{post.img}}" class="img-fluid rounded-start" alt="...">
+            <h3 class="mb-0">{{post.cat}}</h3>
+            <h6 class="mb-0">marked draft as <b>{{post.draft}}</b></h6>
+            <div class="mb-1 text-muted">{{post.summ |truncatechars:15}}</div>
+            <p class="card-text mb-auto">{{post.con |truncatechars:15}}</p>
+            <div class="my-2">
+             <!- <a href="/blog/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a> -->
+            <!-- </div> -->
+            
+        <!-- </div>
+        <div class="col-auto d-none d-lg-block">
+            
+        </div>
+    </div>  -->
+    
+    <div class="card mb-3" style="background-color:rgb(222, 226, 230)">
+        <img src="http://127.0.0.1:8000/files/{{a.img}}" class="card-img-top" style="margin: 2px;width:400px" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Title:{{a.title}}</h5>
+          <h6 class="card-title">Category:{{a.cat}}</h6>
+          <h6 class="card-title">Author:{{a.user}}</h6>
+          <p class="card-text">Summary:{{a.summ |truncatechars:15}}</p>
+          <p class="card-text">Content:{{a.con |truncatechars:15}}</p>
+          <!-- <p class="card-text"><small class="text-body-secondary">marked draft as <b>{{post.draft}}</b></small></p> -->
+        </div>
+        <div class="my-2">
+            <a href="/blog/{{a.sno}}" role="button" class="btn btn-primary">Continue reading</a>
+           </div> 
+      </div>
+      <br>
+        {% endfor %}
+
+        <a href="/dash">Go back</a>
+</div> 

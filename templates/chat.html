@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Box</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+  
+   <div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-3">
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1" class="h4 pt-5">Chatbox</label>
+                    <textarea class="form-control" id="chat-text" readonly rows="20"></textarea><br>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Write here" id="text" type="text"><br>
+                </div>
+                <input class="btn btn-warning btn-lg btn-block" id="submit" type="button" value="Go">
+            </form>
+            <a href="/dash">Go back</a>
+        </div>
+    </div>
+</div>
+
+{{ user|json_script:"user_username" }}
+{{ room_code|json_script:"box-name" }}
+
+    
+  </body>
+  <script>
+    const boxName = JSON.parse(document.getElementById("box-name").textContent);
+    
+    const chatSocket = new WebSocket(
+      "ws://" + window.location.host + "/ws/chat/" + boxName + "/"
+    );
+
+    const user_username = JSON.parse(
+      document.getElementById("user_username").textContent
+    );
+    document.querySelector("#submit").onclick = function (e) {
+      const messageInputDom = document.querySelector("#text");
+      const message = messageInputDom.value;
+      chatSocket.send(
+        JSON.stringify({
+          message: message,
+          username: user_username,
+        })
+      );
+      messageInputDom.value = "";
+    };
+    chatSocket.onmessage = function (e) {
+      const data = JSON.parse(e.data);
+      document.querySelector("#chat-text").value +=
+        data.message + " by " + data.username + "\n"; // add message to text box
+    };
+  </script>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../files/chat.css">
+</head>
+<body>
+    <div class="container">
+        <textarea readonly id="chatarea" cols="50" rows="15" ></textarea><br>
+        <input type="text"  id="chatinput" placeholder="enter your message here">
+        <button  id="chatbtn">Send</button>
+    </div>
+    {{room_code|json_script:"roomname"}}  
+    <script>
+        //var url='ws://127.0.0.1:8000/chat/{{room_code}}' 
+        //var websocket=new WebSocket(url)
+       // var sender='{{user}}'
+        //websocket.onopen=function(e){
+       //     console.log('connected')
+       // }
+       // websocket.onmessage=function(e){
+       //     console.log(e.data)
+       //     var data=JSON.parse(e.data)
+       //     if(data.payload.message){
+       //         updateUI(data.payload.message,data.payload.sender)
+       //     }
+       // }
+       // websocket.onclose=function(e){
+       //     console.log(e)
+       // }
+       // function updateUI(message,sender){
+       //     var html='<textarea readonly id="chatarea" cols="50" rows="15" >${message} ${sender}</textarea><br>'
+       //     document.getElementById('chatarea').innerHTML+=html
+       // }
+       // function sendMessage(){
+       //     var message=document.getElementById('chatinput').value
+       //
+       //     websocket.send(JSON.stringify({'message':message,'sender':sender}))
+        //    document.getElementById('chatinput').value=''
+        //
+        //}
+
+        //json.stringify - javascript object to json string
+        //json.parse - json string to javascript object
+        const roomname = JSON.parse(document.getElementById("roomname").textContent);
+        const chatsocket = new WebSocket(
+            'ws://' + window.location.host + '/chat/' + room_code 
+        )
+        chatsocket.onmessage = function(e){
+            const data = JSON.parse(e.data);
+            document.querySelector("#chatarea").value += (data.user + ":" + data.message + '\n');
+        };
+        document.getElementById("chatbtn").onclick = function(e){
+            const msg = document.getElementById("chatinput").value;
+            chatsocket.send(JSON.stringify({'message':msg}));
+            document.querySelector("#chatinput").value ='';
+        };
+        chatsocket.onclose = function(e){
+            console.log("chatsocket close");
+        };
+        document.querySelector("#chatinput").focus();
+        document.querySelector("#chatinput").onkeyup = function(e){
+            if (e.keyCode === 13) {// press enter 
+                document.querySelector("#chatbtn").click();
+            }
+        };
+
+    </script>
+</body>
+</html> -->
